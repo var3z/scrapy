@@ -170,7 +170,7 @@ class AcceptableProtocolsContextFactory:
 def load_context_factory_from_settings(
     settings: BaseSettings, crawler: Crawler
 ) -> IPolicyForHTTPS:
-    ssl_method = openssl_methods[settings.get("DOWNLOADER_CLIENT_TLS_METHOD")]
+    ssl_method = openssl_methods.get(settings.get("DOWNLOADER_CLIENT_TLS_METHOD"))
     context_factory_cls = load_object(settings["DOWNLOADER_CLIENTCONTEXTFACTORY"])
     # try method-aware context factory
     try:
