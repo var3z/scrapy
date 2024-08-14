@@ -47,7 +47,7 @@ class ScrapyClientContextFactory(BrowserLikePolicyForHTTPS):
 
     def __init__(
         self,
-        method: int = SSL.SSLv23_METHOD,
+        method: Optional[int] = None,
         tls_verbose_logging: bool = False,
         tls_ciphers: Optional[str] = None,
         *args: Any,
@@ -66,7 +66,7 @@ class ScrapyClientContextFactory(BrowserLikePolicyForHTTPS):
     def from_settings(
         cls,
         settings: BaseSettings,
-        method: int = SSL.SSLv23_METHOD,
+        method: Optional[int] = None,
         *args: Any,
         **kwargs: Any,
     ) -> Self:
